@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puer Management | Home</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <style>
+      #project-title,
+      #summary,
+      #tech-stack-tabs,
+      #visual-mockup {
+        background-color: white !important;
+      }
+
+      #team,
+      #features,
+      #target-audience {
+        background-color: #dadada16 !important; /* beyaza kontrast oluşturur */
+      }
+      :root {
+        --bg-light-custom: #f8f9fa;
+        --primary: #ff9102;
+        --primary-light: #ff8800;
+
+        --text-dark: #212529;
+        --bg-light: #f8f9fa;
+
+        --secondary-light: #f0e6f2;
+        --box-shadow-base: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+        --border-radius-base: 0.75rem;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .bg-primary,
+      .btn-primary {
+        transition: all 0.5s ease;
+        background-color: var(--primary) !important;
+        border-color: var(--primary) !important;
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus {
+        background-color: var(--text-dark) !important;
+        border-color: var(--text-dark) !important;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+      }
+
+      .btn-outline-light {
+        transition: all 0.5s ease;
+        border-color: white !important;
+        color: white !important;
+      }
+      .btn-outline-light:hover {
+        background-color: white !important;
+        color: var(--primary) !important;
+      }
+      .btn-outline-secondary {
+        transition: all 0.3s ease;
+      }
+      .btn-outline-secondary:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+      }
+      .navbar-brand {
+        color: var(--primary) !important;
+      }
+      .navbar-brand:hover {
+        color: var(--primary-light) !important;
+      }
+
+      @media (min-width: 992px) {
+        .navbar-collapse .navbar-nav {
+          margin-left: -50px !important;
+          padding: 0 !important;
+        }
+      }
+
+      .navbar-collapse .navbar-nav {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+      nav .navbar-brand {
+        color: white !important;
+        transition: color 0.3s;
+      }
+      nav .btn-primary:hover {
+        box-shadow: none !important;
+        transform: none !important;
+      }
+
+      .navbar .form-control-sm {
+        border-radius: 0.3rem 0 0 0.3rem !important;
+      }
+      .navbar .btn-search {
+        border-radius: 0 0.3rem 0.3rem 0 !important;
+      }
+      .navbar-collapse .navbar-nav {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+      #team,
+      #summary,
+      #features,
+      #tech-stack-tabs,
+      #target-audience,
+      #visual-mockup {
+        scroll-margin-top: 65px;
+      }
+      .card {
+        border-radius: var(--border-radius-base);
+        border: none;
+        transition: transform 0.3s ease;
+      }
+
+      .card.shadow,
+      .shadow-lg {
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+      }
+
+      .border-start {
+        border-left-width: 5px !important;
+      }
+
+      .progress-lg {
+        height: 30px !important;
+      }
+      .progress-lg .progress-bar {
+        font-weight: bold;
+      }
+
+      #login-page-central {
+        padding: 0;
+        margin: 0;
+      }
+
+      .auth-wrapper {
+        width: 100%;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .auth-panel {
+        flex: 1 1 50%;
+        min-height: 550px;
+        padding: 3rem;
+      }
+
+      .form-panel {
+        background-color: white;
+      }
+
+      .promo-panel {
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary)
+        );
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .promo-panel i {
+        color: var(--secondary-light);
+      }
+
+      .promo-box {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-top: 1rem;
+      }
+
+      .login-btn {
+        padding: 12px !important;
+        border-radius: 0.5rem !important;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 768px) {
+        .promo-panel {
+          display: none !important;
+        }
+
+        .auth-panel {
+          min-height: auto;
+        }
+
+        .form-panel {
+          flex: 1 1 100%;
+        }
+
+        .auth-wrapper {
+          box-shadow: none !important;
+        }
+      }
+
+      .promo-panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary)
+        );
+        color: white;
+      }
+      .promo-panel img {
+        max-height: 280px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .promo-panel .promo-box {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 1rem;
+        border-radius: 0.5rem;
+      }
+
+      .promo-panel h4,
+      .promo-panel p {
+        color: white;
+      }
+
+      .hero-full-screen {
+        min-height: calc(100vh - 65px);
+      }
+
+      .navbar-light .navbar-nav .nav-link:hover {
+        color: var(--primary) !important;
+      }
+      .navbar .btn-outline-primary {
+        transition: all 0.5s ease;
+      }
+      .navbar .btn-outline-primary:hover {
+        background-color: var(--text-dark) !important;
+        border-color: var(--text-dark) !important;
+      }
+      .btn-outline-primary {
+        border-color: var(--primary) !important;
+        color: var(--primary) !important;
+      }
+      .btn-outline-primary:hover {
+        background-color: var(--primary) !important;
+        color: white !important;
+      }
+      .nav-link.active {
+        color: var(--primary) !important;
+        font-weight: 600;
+      }
+
+      #features p {
+        font-size: 0.98rem !important;
+      }
+      #features .card {
+        transition: all 0.5s ease;
+      }
+      #features .card:hover {
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px !important;
+        transform: translateY(-15px);
+      }
+
+      #landing-nav a {
+        padding-bottom: 4px;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s ease;
+      }
+
+      #typing-text {
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+      #team .card {
+        transition: all 0.4s ease-in-out;
+      }
+      #team .card:hover {
+        box-shadow: rgba(17, 12, 46, 0.071) 0px 48px 100px 0px !important;
+        transform: translateY(-4px);
+      }
+      .summary-text {
+        text-align: justify;
+        line-height: 1.75;
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 0 0.75rem;
+      }
+      html {
+        scroll-padding-top: 75px; /* navbar yüksekliği kadar */
+      }
+      #team,
+      #summary,
+      #features,
+      #tech-stack-tabs,
+      #target-audience,
+      #visual-mockup {
+        scroll-margin-top: 75px;
+      }
+
+      section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+    </style>
+  </head>
+  <body tabindex="0">
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm"
+    >
+      <div class="container-fluid container-xl">
+        <a class="navbar-brand d-flex align-items-center" href="#hero">
+          <i
+            class="bi bi-person-workspace me-2 fs-4"
+            style="color: var(--primary)"
+          ></i>
+          <span class="fs-5 fw-bold" style="color: var(--text-dark)"
+            >Puer Management</span
+          >
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#landingNav"
+          aria-controls="landingNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="landingNav">
+          <ul
+            class="navbar-nav mb-2 mb-lg-0 justify-content-center"
+            id="landing-nav"
+          >
+            <li class="nav-item">
+              <a class="nav-link active" href="#hero">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#team">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#summary">Summary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tech-stack-tabs">Tech Stack</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#target-audience">Target Audience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#visual-mockup">Visual Mockup</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- giriş ekranı HERO SECTION -->
+    <section
+      id="hero"
+      class="hero-full-screen d-flex align-items-center text-center"
+    >
+      <div class="container container-xl">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 col-xl-8">
+            <h1 class="display-3 fw-bold mb-4">
+              <span style="color: var(--primary)">Maximize</span>
+
+              <span
+                id="typing-text"
+                style="
+                  color: var(--text-dark);
+                  border-right: 2px solid currentColor;
+                  padding-right: 4px;
+                "
+              >
+                Team Accountability
+              </span>
+            </h1>
+
+            <p class="lead mb-5 text-muted">
+              Puer Management is a web-based platform designed to ensure
+              fairness in university group projects by tracking individual
+              contributions, visualizing team progress, and supporting
+              data-driven evaluation.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a href="#team" class="btn btn-primary btn-lg fw-bold px-4">
+                Team Information
+              </a>
+              <a
+                href="#summary"
+                class="btn btn-outline-secondary btn-lg fw-bold px-4"
+              >
+                Project Summary
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="team" class="py-5">
+      <div class="container container-xl text-center">
+        <h2 class="display-4 fw-bold mb-4" style="color: var(--text-dark)">
+          Meet <span style="color: var(--primary)">Our Team</span>
+        </h2>
+
+        <div class="mb-5">
+          <small class="text-uppercase text-muted d-block mb-1">Group</small>
+          <span class="fw-semibold fs-5">Puer Management</span>
+        </div>
+
+        <div class="row g-4 justify-content-center mb-5">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow rounded-4 border-0">
+              <div class="card-body py-5 px-4">
+                <h5 class="fw-bold mb-3">Boran Köseoğlu</h5>
+                <p class="fw-semibold mb-2" style="color: var(--primary)">
+                  <i class="fa-solid fa-star me-1"></i>
+                  Group Leader & Project Coordinator
+                </p>
+
+                <p class="text-muted mb-0">
+                  Content development and integration oversight
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow rounded-4 border-0">
+              <div class="card-body py-5 px-4">
+                <h5 class="fw-bold mb-3">İrem Cürül</h5>
+                <p class="fw-semibold mb-2" style="color: var(--primary)">
+                  <i class="fa-solid fa-file-lines me-1"></i>
+                  Content Developer
+                </p>
+                <p class="text-muted mb-0">
+                  Documentation, content curation and research
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow rounded-4 border-0">
+              <div class="card-body py-5 px-4">
+                <h5 class="fw-bold mb-3">Doruk Alp Soğukkuyu</h5>
+                <p class="fw-semibold mb-2" style="color: var(--primary)">
+                  <i class="fa-solid fa-database me-1"></i>
+                  Backend & Database Designer
+                </p>
+                <p class="text-muted mb-0">
+                  Database architecture and backend system design
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow rounded-4 border-0">
+              <div class="card-body py-5 px-4">
+                <h5 class="fw-bold mb-3">Umut İleri</h5>
+                <p class="fw-semibold mb-2" style="color: var(--primary)">
+                  <i class="fa-solid fa-code me-1"></i>
+                  Frontend & UI Developer
+                </p>
+                <p class="text-muted mb-0">
+                  Frontend implementation and visual design
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow rounded-4 border-0">
+              <div class="card-body py-5 px-4">
+                <h5 class="fw-bold mb-3">Mert Gedik</h5>
+                <p class="fw-semibold mb-2" style="color: var(--primary)">
+                  <i class="fa-solid fa-pen-nib me-1"></i>
+                  UX / UI Designer
+                </p>
+                <p class="text-muted mb-0">
+                  Wireframes, user experience and visual design
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 text-center">
+          <small class="text-muted d-block mb-3" style="letter-spacing: 0.08em">
+            PROJECT CONTACT
+          </small>
+
+          <div
+            class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill"
+            style="background-color: rgba(255, 140, 0, 0.08)"
+          >
+            <i class="bi bi-envelope-fill" style="color: var(--primary)"></i>
+            <span class="fw-semibold" style="color: var(--text-dark)">
+              puermanagement@gmail.com
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Group info hakkında summry section-->
+    <section id="summary" class="py-5">
+      <div class="container container-xl">
+        <div class="text-center mb-5">
+          <div
+            class="d-inline-flex align-items-center justify-content-center mb-3 rounded-circle"
+            style="
+              width: 64px;
+              height: 64px;
+              background-color: rgba(255, 140, 0, 0.12);
+            "
+          >
+            <i
+              class="fa-solid fa-clipboard-list fa-lg"
+              style="color: var(--primary)"
+            ></i>
+          </div>
+
+          <h2 class="display-5 fw-bold mb-0" style="color: var(--text-dark)">
+            Project Summary
+          </h2>
+        </div>
+
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <p class="fs-5 text-muted summary-text">
+              <strong>Puer Management</strong> is a project management and
+              contribution evaluation platform designed for team-based projects
+              with clearly defined roles and responsibilities. It enables
+              transparent tracking of tasks, progress, and individual
+              contributions, ensuring that every participant’s effort is visible
+              throughout the project lifecycle.
+            </p>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <p class="fs-5 text-muted summary-text">
+              By replacing subjective judgment with structured contribution
+              metrics and peer-based evaluation mechanisms, the platform
+              promotes accountability, fairness, and clarity within teams. This
+              data-driven approach supports effective collaboration in both
+              academic and professional project environments.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="#features" class="btn btn-primary btn-lg fw-semibold px-4">
+            Explore Key Features
+            <i class="fa-solid fa-layer-group ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- key features -->
+    <section id="features" class="py-5">
+      <div class="container container-xl text-center">
+        <h2 class="display-5 fw-bold mb-4" style="color: var(--text-dark)">
+          Key Features of Puer Management
+        </h2>
+        <p class="lead text-muted mb-5">
+          We bring transparency and fairness to group work, every single time.
+        </p>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4">
+            <div class="card shadow h-100 p-4">
+              <i
+                class="bi bi-list-task fs-1 mb-3"
+                style="color: var(--primary)"
+              ></i>
+              <h5 class="fw-bold">Transparent Task Tracking</h5>
+              <p class="small text-muted">
+                Assign roles and tasks clearly. Every member updates their
+                status, which automatically reflects on the group progress bar.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card shadow h-100 p-4">
+              <i
+                class="bi bi-bar-chart-line fs-1 mb-3"
+                style="color: var(--primary)"
+              ></i>
+              <h5 class="fw-bold">Real-Time Progress Visualization</h5>
+              <p class="small text-muted">
+                Instantly see the percentage of completed work for the whole
+                group and for each individual member on the dashboard.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card shadow h-100 p-4">
+              <i
+                class="bi bi-award fs-1 mb-3"
+                style="color: var(--primary)"
+              ></i>
+              <h5 class="fw-bold">Flexible Peer Evaluation</h5>
+              <p class="small text-muted">
+                Use multiple evaluation options (named, anonymous,
+                context-based) to ensure every contribution is scored correctly
+                and fairly.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow h-100 p-4">
+              <i
+                class="bi bi-people fs-1 mb-3"
+                style="color: var(--primary)"
+              ></i>
+              <h5 class="fw-bold">Team Accountability</h5>
+              <p class="small text-muted">
+                Track every team member's contributions and ensure that
+                responsibilities are clearly defined.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card shadow h-100 p-4">
+              <i
+                class="bi bi-check2-circle fs-1 mb-3"
+                style="color: var(--primary)"
+              ></i>
+              <h5 class="fw-bold">Objective Evaluation</h5>
+              <p class="small text-muted">
+                Structured scoring based on measurable contributions,
+                eliminating ambiguity in grading and feedback.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-12 mt-5 text-center">
+            <h2 class="fw-bold mb-3" style="color: var(--text-dark)">
+              The Data That Drives Fairness
+            </h2>
+
+            <p class="lead text-muted mb-4">
+              Unlike traditional methods, Puer Management doesn't rely on
+              guesswork. We provide tangible data points<br />
+              from task completion rates to granular peer feedback ensuring
+              every score is justified.
+            </p>
+
+            <ul class="list-unstyled fw-semibold small">
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill me-2 text-success"></i>
+                Instant accountability checks.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill me-2 text-success"></i>
+                Reduces project ambiguity.
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill me-2 text-success"></i>
+                Objective basis for instructor grading.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- tech stack-->
+    <section
+      id="tech-stack-tabs"
+      class="py-5"
+      style="background-color: #f9f9f9"
+    >
+      <div class="container container-xl">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold" style="color: var(--text-dark)">
+            Technology Stack
+          </h2>
+          <p class="text-muted fs-5">
+            Explore the technologies used in Frontend and Backend development.
+          </p>
+        </div>
+
+        <div class="card shadow p-4">
+          <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-primary me-2" id="frontendBtn">
+              Frontend
+            </button>
+            <button class="btn btn-outline-primary" id="backendBtn">
+              Backend
+            </button>
+          </div>
+
+          <div id="frontendContent">
+            <div class="row g-4 justify-content-center">
+              <div class="col-md-4">
+                <div
+                  class="card h-100 shadow-sm p-4 text-center border-0"
+                  style="
+                    background: linear-gradient(135deg, #ffd8cc, #ffe6d9);
+                    color: #333;
+                  "
+                >
+                  <i class="fab fa-html5 fs-2 mb-3" style="color: #e34f26"></i>
+                  <h5 class="fw-bold">HTML5</h5>
+                  <p class="small">
+                    Structure all web pages and organize content semantically.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div
+                  class="card h-100 shadow-sm p-4 text-center border-0"
+                  style="
+                    background: linear-gradient(135deg, #d0e7ff, #e3f0ff);
+                    color: #333;
+                  "
+                >
+                  <i
+                    class="fab fa-css3-alt fs-2 mb-3"
+                    style="color: #1572b6"
+                  ></i>
+                  <h5 class="fw-bold">CSS3</h5>
+                  <p class="small">
+                    For styling, layout adjustments, and responsive design.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div
+                  class="card h-100 shadow-sm p-4 text-center border-0"
+                  style="
+                    background: linear-gradient(135deg, #fff4cc, #fff9e6);
+                    color: #333;
+                  "
+                >
+                  <i class="fab fa-js fs-2 mb-3" style="color: #f7df1e"></i>
+                  <h5 class="fw-bold">JavaScript</h5>
+                  <p class="small">
+                    Adds interactivity and handles dynamic UI behaviors.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div
+                  class="card h-100 shadow-sm p-4 text-center border-0"
+                  style="
+                    background: linear-gradient(135deg, #e6dfff, #f2e6ff);
+                    color: #333;
+                  "
+                >
+                  <i
+                    class="fab fa-bootstrap fs-2 mb-3"
+                    style="color: #7952b3"
+                  ></i>
+                  <h5 class="fw-bold">Bootstrap 5</h5>
+                  <p class="small">
+                    For fast design, professional appearance, and
+                    responsiveness.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div
+                  class="card h-100 shadow-sm p-4 text-center border-0"
+                  style="
+                    background: linear-gradient(135deg, #e0f0ff, #f0f7ff);
+                    color: #333;
+                  "
+                >
+                  <i class="fas fa-icons fs-2 mb-3" style="color: #555"></i>
+                  <h5 class="fw-bold">FontAwesome Icons</h5>
+                  <p class="small">
+                    Icon set used throughout the interface for visual clarity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="backendContent" class="d-none">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div
+                  class="card h-100 shadow-sm p-4 text-center border-0"
+                  style="
+                    background: linear-gradient(135deg, #e6e6e6, #f2f2f2);
+                    color: #333;
+                  "
+                >
+                  <i class="fas fa-server fs-2 mb-3" style="color: #000"></i>
+                  <h5 class="fw-bold">Flask</h5>
+                  <p class="small">
+                    Python-based backend framework handling API requests and
+                    server logic.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div
+                  class="card h-100 shadow-sm p-4 text-center border-0"
+                  style="
+                    background: linear-gradient(135deg, #d9f0ff, #e6f5ff);
+                    color: #333;
+                  "
+                >
+                  <i
+                    class="fas fa-database fs-2 mb-3"
+                    style="color: #336791"
+                  ></i>
+                  <h5 class="fw-bold">PostgreSQL</h5>
+                  <p class="small">
+                    Relational database for storing user data, tasks, and
+                    evaluations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const frontendBtn = document.getElementById("frontendBtn");
+        const backendBtn = document.getElementById("backendBtn");
+        const frontendContent = document.getElementById("frontendContent");
+        const backendContent = document.getElementById("backendContent");
+
+        frontendBtn.addEventListener("click", () => {
+          frontendContent.classList.remove("d-none");
+          backendContent.classList.add("d-none");
+          frontendBtn.classList.add("btn-primary");
+          frontendBtn.classList.remove("btn-outline-primary");
+          backendBtn.classList.add("btn-outline-primary");
+          backendBtn.classList.remove("btn-primary");
+        });
+
+        backendBtn.addEventListener("click", () => {
+          backendContent.classList.remove("d-none");
+          frontendContent.classList.add("d-none");
+          backendBtn.classList.add("btn-primary");
+          backendBtn.classList.remove("btn-outline-primary");
+          frontendBtn.classList.add("btn-outline-primary");
+          frontendBtn.classList.remove("btn-primary");
+        });
+      </script>
+    </section>
+    <!-- target audience -->
+    <section id="target-audience" class="py-5">
+      <div class="container text-center">
+        <div class="mb-5">
+          <div
+            class="d-inline-flex align-items-center justify-content-center mb-3 rounded-circle"
+            style="
+              width: 64px;
+              height: 64px;
+              background-color: rgba(255, 140, 0, 0.12);
+            "
+          >
+            <i
+              class="fa-solid fa-users fa-lg"
+              style="color: var(--primary)"
+            ></i>
+          </div>
+          <h2 class="display-5 fw-bold mb-0" style="color: var(--text-dark)">
+            Target Audience
+          </h2>
+        </div>
+
+        <p
+          class="fs-5 text-muted mb-5"
+          style="max-width: 800px; margin: auto; text-align: justify"
+        >
+          Puer Management is designed for teams working on projects with clearly
+          defined roles and responsibilities. It benefits anyone involved in
+          collaborative assignments by ensuring transparency, accountability,
+          and fair evaluation of contributions.
+        </p>
+
+        <div class="row justify-content-center g-4">
+          <div class="col-md-4">
+            <div class="card shadow h-100 p-4">
+              <i
+                class="fa-solid fa-chalkboard-user fs-1 mb-3"
+                style="color: var(--primary)"
+              ></i>
+              <h5 class="fw-bold">Students</h5>
+              <p class="small text-muted">
+                University students working in teams on academic projects, who
+                need clear task assignment, progress tracking, and peer
+                evaluation.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card shadow h-100 p-4">
+              <i
+                class="fa-solid fa-person-chalkboard fs-1 mb-3"
+                style="color: var(--primary)"
+              ></i>
+              <h5 class="fw-bold">Instructors</h5>
+              <p class="small text-muted">
+                Professors or mentors supervising group projects, who require
+                data-driven insight to fairly assess contributions and provide
+                structured feedback.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card shadow h-100 p-4">
+              <i
+                class="fa-solid fa-people-arrows fs-1 mb-3"
+                style="color: var(--primary)"
+              ></i>
+              <h5 class="fw-bold">Project Teams</h5>
+              <p class="small text-muted">
+                Small to medium-sized collaborative groups outside academics,
+                such as clubs or work-based projects, looking for organized task
+                management and accountability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- visual mockup solda resim(siteden ss) sağda ise yazı -->
+    <section id="visual-mockup" class="py-5">
+      <div class="container container-xl">
+        <h2 class="display-5 fw-bold mb-0 text-center text-dark">
+          Visual Mockup / Sketch
+        </h2>
+
+        <div class="row align-items-center g-4 mt-5">
+          <div class="col-md-8 text-center text-md-start">
+            <img
+              src="https://raw.githubusercontent.com/Umutileri/Puer_Proje_Website_LayoutV1/main/One-Page-Web-Draft/puerwebsite.jpg"
+              alt="Puer Management Dashboard Screenshot"
+              class="img-fluid rounded shadow-lg"
+              style="max-width: 100%"
+            />
+          </div>
+
+          <div class="col-md-4 text-center text-md-start">
+            <h5
+              class="fw-bold mb-3 text-center"
+              style="color: var(--text-dark); font-size: 1.6rem"
+            >
+              Dashboard Overview
+            </h5>
+            <p
+              class="text-secondary mb-3"
+              style="font-size: 1.2rem; line-height: 1.5"
+            >
+              This snapshot of our
+              <span class="fw-semibold text-dark">Puer Management</span>
+              dashboard demonstrates a clean and intuitive interface designed
+              for smooth collaboration. It presents a clear overview of project
+              metrics and team activities at a glance.
+            </p>
+            <p
+              class="text-secondary"
+              style="font-size: 1.2rem; line-height: 1.5"
+            >
+              Key elements include
+              <span class="fw-semibold" style="color: orange"
+                >Active Projects</span
+              >,
+              <span class="fw-semibold" style="color: orange"
+                >Completed Tasks</span
+              >, and
+              <span class="fw-semibold" style="color: orange"
+                >Pending Evaluations</span
+              >. Each component uses color-coded visuals, readable typography,
+              and responsive design principles to ensure a professional,
+              user-friendly experience across all devices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" class="bg-dark text-white-50 py-4 mt-auto">
+      <div class="container text-center">
+        <small>&copy; 2025 Puer Management</small>
+      </div>
+    </footer>
+    <!-- boostrap için gerekli script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- hero section'da yazıların değişmesi için gerekli script -->
+    <script>
+      const texts = [
+        "Team Accountability",
+        "Fair Contribution",
+        "Project Transparency",
+        "Collaboration Efficiency",
+      ];
+
+      const typingEl = document.getElementById("typing-text");
+
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      const typingSpeed = 110;
+      const deletingSpeed = 50;
+      const pauseAfterType = 2000;
+
+      function typeEffect() {
+        const currentText = texts[textIndex];
+
+        if (!isDeleting) {
+          typingEl.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+
+          if (charIndex === currentText.length) {
+            setTimeout(() => (isDeleting = true), pauseAfterType);
+          }
+        } else {
+          typingEl.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+
+          if (charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+          }
+        }
+
+        setTimeout(typeEffect, isDeleting ? deletingSpeed : typingSpeed);
+      }
+
+      typeEffect();
+    </script>
+    <!-- scroll daha yumuşak ve hizalı kayması için -->
+    <script>
+      const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+        target: "#landingNav",
+        offset: 75,
+      });
+    </script>
+
+    <script>
+      const navLinks = document.querySelectorAll("#landingNav a.nav-link");
+      const sections = Array.from(navLinks).map((link) =>
+        document.querySelector(link.getAttribute("href"))
+      );
+      navLinks.forEach((link, idx) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const top =
+            sections[idx].getBoundingClientRect().top + window.scrollY - 65;
+          window.scrollTo({
+            top: top,
+            behavior: "smooth",
+          });
+
+          navLinks.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+      window.addEventListener("scroll", () => {
+        const scrollPos = window.scrollY + 70;
+
+        sections.forEach((section, i) => {
+          const sectionTop =
+            section.getBoundingClientRect().top + window.scrollY;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+            navLinks.forEach((l) => l.classList.remove("active"));
+            navLinks[i].classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
