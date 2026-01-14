@@ -323,7 +323,7 @@
         padding: 0 0.75rem;
       }
       html {
-        scroll-padding-top: 75px; /* navbar yüksekliği kadar */
+        scroll-padding-top: 75px;
       }
       #team,
       #summary,
@@ -337,6 +337,48 @@
       section {
         padding-top: 5rem;
         padding-bottom: 5rem;
+      }
+      .stack-toggle {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .toggle {
+        position: relative;
+        display: flex;
+        background: #fff3ec;
+        padding: 6px;
+        border-radius: 999px;
+        width: 280px;
+      }
+
+      .indicator {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: calc(50% - 6px);
+        height: calc(100% - 12px);
+        background: linear-gradient(135deg, #ff7a18, #ff9f45);
+        border-radius: 999px;
+        transition: transform 0.35s ease;
+        box-shadow: 0 8px 18px rgba(255, 122, 24, 0.35);
+      }
+
+      .tab {
+        flex: 1;
+        border: none;
+        background: transparent;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #8a8a8a;
+        cursor: pointer;
+        z-index: 2;
+        padding: 10px 0;
+        transition: color 0.25s ease;
+      }
+      .tab.active {
+        color: #fff;
       }
     </style>
   </head>
@@ -553,7 +595,7 @@
       <div class="container container-xl">
         <div class="text-center mb-5">
           <div
-            class="d-inline-flex align-items-center justify-content-center mb-3 rounded-circle"
+            class="d-inline-flex align-items-center justify-content-center mt-5 mb-3 rounded-circle"
             style="
               width: 64px;
               height: 64px;
@@ -584,7 +626,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <p class="fs-5 text-muted summary-text">
+            <p class="fs-5 text-muted summary-text mb-5">
               By replacing subjective judgment with structured contribution
               metrics and peer-based evaluation mechanisms, the platform
               promotes accountability, fairness, and clarity within teams. This
@@ -723,13 +765,13 @@
         </div>
 
         <div class="card shadow p-4">
-          <div class="d-flex justify-content-center mb-4">
-            <button class="btn btn-primary me-2" id="frontendBtn">
-              Frontend
-            </button>
-            <button class="btn btn-outline-primary" id="backendBtn">
-              Backend
-            </button>
+          <div class="stack-toggle">
+            <div class="toggle">
+              <span class="indicator"></span>
+
+              <button class="tab active" data-tab="frontend">Frontend</button>
+              <button class="tab" data-tab="backend">Backend</button>
+            </div>
           </div>
 
           <div id="frontendContent">
@@ -865,31 +907,6 @@
           </div>
         </div>
       </div>
-
-      <script>
-        const frontendBtn = document.getElementById("frontendBtn");
-        const backendBtn = document.getElementById("backendBtn");
-        const frontendContent = document.getElementById("frontendContent");
-        const backendContent = document.getElementById("backendContent");
-
-        frontendBtn.addEventListener("click", () => {
-          frontendContent.classList.remove("d-none");
-          backendContent.classList.add("d-none");
-          frontendBtn.classList.add("btn-primary");
-          frontendBtn.classList.remove("btn-outline-primary");
-          backendBtn.classList.add("btn-outline-primary");
-          backendBtn.classList.remove("btn-primary");
-        });
-
-        backendBtn.addEventListener("click", () => {
-          backendContent.classList.remove("d-none");
-          frontendContent.classList.add("d-none");
-          backendBtn.classList.add("btn-primary");
-          backendBtn.classList.remove("btn-outline-primary");
-          frontendBtn.classList.add("btn-outline-primary");
-          frontendBtn.classList.remove("btn-primary");
-        });
-      </script>
     </section>
     <!-- target audience -->
     <section id="target-audience" class="py-5">
@@ -1039,6 +1056,29 @@
       crossorigin="anonymous"
     ></script>
     <!-- hero section'da yazıların değişmesi için gerekli script -->
+    <script>
+      const tabs = document.querySelectorAll(".tab");
+      const indicator = document.querySelector(".indicator");
+
+      const frontendContent = document.getElementById("frontendContent");
+      const backendContent = document.getElementById("backendContent");
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          document.querySelector(".tab.active").classList.remove("active");
+          tab.classList.add("active");
+
+          indicator.style.transform = `translateX(${index * 100}%)`;
+          if (tab.dataset.tab === "frontend") {
+            frontendContent.classList.remove("d-none");
+            backendContent.classList.add("d-none");
+          } else {
+            backendContent.classList.remove("d-none");
+            frontendContent.classList.add("d-none");
+          }
+        });
+      });
+    </script>
     <script>
       const texts = [
         "Team Accountability",
