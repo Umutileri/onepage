@@ -1128,12 +1128,34 @@
 
       typeEffect();
     </script>
-    <!-- scroll daha yumuşak ve hizalı kayması için -->
     <script>
-      const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-        target: "#landingNav",
-        offset: 75,
-      });
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll("#landing-nav .nav-link");
+
+      function updateActiveNav() {
+        const center = window.innerHeight / 2;
+
+        let currentSection = null;
+
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+
+          if (rect.top <= center && rect.bottom >= center) {
+            currentSection = section.id;
+          }
+        });
+
+        if (currentSection) {
+          navLinks.forEach((link) => link.classList.remove("active"));
+          const activeLink = document.querySelector(
+            `#landing-nav a[href="#${currentSection}"]`
+          );
+          if (activeLink) activeLink.classList.add("active");
+        }
+      }
+
+      window.addEventListener("scroll", updateActiveNav);
+      window.addEventListener("load", updateActiveNav);
     </script>
   </body>
 </html>
