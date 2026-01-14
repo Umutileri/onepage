@@ -383,6 +383,9 @@
       .tab.active {
         color: #fff;
       }
+      #target-audience {
+        padding-top: 10px;
+      }
     </style>
   </head>
   <body tabindex="0">
@@ -1130,41 +1133,6 @@
       const scrollSpy = new bootstrap.ScrollSpy(document.body, {
         target: "#landingNav",
         offset: 75,
-      });
-    </script>
-
-    <script>
-      const navLinks = document.querySelectorAll("#landingNav a.nav-link");
-      const sections = Array.from(navLinks).map((link) =>
-        document.querySelector(link.getAttribute("href"))
-      );
-      navLinks.forEach((link, idx) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          const top =
-            sections[idx].getBoundingClientRect().top + window.scrollY - 65;
-          window.scrollTo({
-            top: top,
-            behavior: "smooth",
-          });
-
-          navLinks.forEach((l) => l.classList.remove("active"));
-          link.classList.add("active");
-        });
-      });
-      window.addEventListener("scroll", () => {
-        const scrollPos = window.scrollY + 70;
-
-        sections.forEach((section, i) => {
-          const sectionTop =
-            section.getBoundingClientRect().top + window.scrollY;
-          const sectionBottom = sectionTop + section.offsetHeight;
-
-          if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-            navLinks.forEach((l) => l.classList.remove("active"));
-            navLinks[i].classList.add("active");
-          }
-        });
       });
     </script>
   </body>
